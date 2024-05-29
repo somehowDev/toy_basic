@@ -1,0 +1,141 @@
+body {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: 18px;
+}
+
+/* 페이지 전체 컨테이너 스타일 */
+.container {
+  margin: 10px;
+  max-width: 900px;
+  width: 900px;
+}
+
+/* 헤더 스타일 */
+.header {
+  height: 60px;
+  border: 5px solid black;
+}
+
+/* 타이틀 섹션 스타일 */
+.title-section {
+  text-align: center;
+  padding: 20px;
+  border: 5px solid black;
+  margin-top: 20px;
+}
+
+.title-section h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* 이미지 섹션 스타일 */
+.image-section {
+  text-align: center;
+  border: 5px solid black;
+  margin-top: 20px;
+}
+
+.image-section img {
+  width: 800px;
+}
+
+/* 콘텐츠 섹션 스타일 */
+.content-section {
+  padding: 20px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 개별 섹션 스타일 */
+.section {
+  text-align: left;
+  width: 390px;
+  padding: 20px;
+  border: 5px solid black;
+  overflow: hidden; /* 내용이 넘치지 않도록 숨기기 */
+  transition: max-height 0.5s ease; /* 최대 높이 변경 시 부드러운 전환 효과 */
+}
+
+/* 섹션 헤더 스타일 */
+.section-header {
+  border-bottom: 5px solid black;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.toggle-button {
+  cursor: pointer;
+}
+
+/* 섹션 콘텐츠 스타일 */
+.section-content {
+  max-height: 0; /* 기본적으로 콘텐츠 숨기기 */
+  overflow: hidden; /* 내용이 넘치지 않도록 숨기기 */
+  transition: max-height 0.5s ease; /* 최대 높이 변경 시 부드러운 전환 효과 */
+}
+
+.section-subtitle {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.bold-text {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.red-text {
+  color: red;
+}
+
+/* 목록 스타일 */
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+/* 목록 항목 스타일 */
+ul li {
+  padding: 10px 0;
+}
+
+/* 첫 번째 섹션의 짝수번째 목록 항목 스타일 */
+.travel-journal ul li:nth-child(even) {
+  padding-left: 8px;
+}
+
+/* 두 번째 섹션의 짝수번째 목록 항목 스타일 */
+.music-playlist ul li:nth-child(even) {
+  padding-left: 8px;
+}
+ul li p {
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+.menu {
+  list-style: none; /* 리스트 스타일 제거 */
+  display: flex; /* 가로로 정렬 */
+  padding: 0; /* 기본 패딩 제거 */
+  margin: 0; /* 기본 마진 제거 */
+}
+
+.menu li {
+  padding: 0 10px; /* 좌우에 여백 추가 */
+  border-right: 1px solid #ccc; /* 오른쪽에 구분선 추가 */
+}
+
+.menu li:last-child {
+  border-right: none; /* 마지막 항목은 구분선 제거 */
+}
