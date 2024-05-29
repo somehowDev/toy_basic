@@ -8,7 +8,6 @@ body {
 
 /* 페이지 전체 컨테이너 스타일 */
 .container {
-  margin: 10px;
   max-width: 900px;
   width: 900px;
 }
@@ -48,16 +47,18 @@ body {
   padding: 20px 0 0 0;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap; /* 섹션이 줄을 넘길 수 있도록 설정 */
 }
 
 /* 개별 섹션 스타일 */
 .section {
   text-align: left;
-  width: 390px;
+  width: 100%; /* 섹션의 너비를 100%로 설정 */
   padding: 20px;
   border: 5px solid black;
   overflow: hidden; /* 내용이 넘치지 않도록 숨기기 */
   transition: max-height 0.5s ease; /* 최대 높이 변경 시 부드러운 전환 효과 */
+  margin-bottom: 20px; /* 섹션 간 간격 추가 */
 }
 
 /* 섹션 헤더 스타일 */
@@ -146,7 +147,7 @@ ul li p {
 }
 
 .menu a:hover {
-  color: rgb(211, 12, 38); /* hover 시 텍스트 색상 노란색으로 변경 */
+  color: rgb(211, 12, 38); /* hover 시 텍스트 색상 변경 */
   font-weight: bold;
 }
 

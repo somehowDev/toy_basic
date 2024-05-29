@@ -61,11 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
         content.style.maxHeight = content.scrollHeight + "px"; // 콘텐츠를 펼침
         button.innerHTML = "➖"; // 버튼을 "➖"로 변경
 
-        // 모든 메뉴 링크에서 active 클래스 제거
-        menuLinks.forEach((menuLink) => {
-          menuLink.classList.remove("active");
-        });
-
         // 관련된 메뉴 링크에 active 클래스 추가
         document
           .querySelector(`a[href="#${contentId}"]`)
@@ -78,6 +73,11 @@ document.addEventListener("DOMContentLoaded", function () {
         menuLinks.forEach((menuLink) => {
           menuLink.classList.remove("active");
         });
+
+        // 관련된 메뉴 링크에서 active 클래스 제거
+        document
+          .querySelector(`a[href="#${contentId}"]`)
+          .classList.remove("active");
       }
     });
 
