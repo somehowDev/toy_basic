@@ -139,3 +139,17 @@ ul li p {
 .menu li:last-child {
   border-right: none; /* 마지막 항목은 구분선 제거 */
 }
+
+.menu a {
+  text-decoration: none; /* 기본 밑줄 제거 */
+  color: inherit; /* 부모 요소의 색상을 상속 */
+}
+
+.menu a:hover {
+  color: rgb(211, 12, 38); /* hover 시 텍스트 색상 노란색으로 변경 */
+  font-weight: bold;
+}
+
+.menu a.active {
+  color: red; /* active 상태의 텍스트 색상 빨간색으로 변경 */
+}
