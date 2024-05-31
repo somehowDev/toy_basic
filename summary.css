@@ -101,6 +101,13 @@ body {
   color: red;
 }
 
+.flex {
+  cursor: pointer;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+}
+
 /* 목록 스타일 */
 ul {
   padding: 0;
