@@ -17,6 +17,31 @@
     />
   </head>
   <body>
+    <!-- 모달 창 -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>데이터 수정</h2>
+        <div>
+          <form id="modalForm">
+            <div>
+              <label for="sectionTitle">제목:</label>
+              <input type="text" id="sectionTitle" name="sectionTitle" />
+            </div>
+            <div>
+              <label for="sectionDescription">설명:</label>
+
+              <textarea
+                id="sectionDescription"
+                name="sectionDescription"
+              ></textarea>
+            </div>
+            <button type="button" id="saveButton">저장</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
       <div class="title-section"><h1>나의 취미 웹 페이지</h1></div>
       <div class="title-section">
