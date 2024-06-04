@@ -142,6 +142,28 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   ];
 
+  const modal = document.getElementById("myModal");
+  const closeBtn = document.getElementsByClassName("close")[0];
+  const saveBtn = document.getElementById("saveButton");
+
+  function openModal() {
+    modal.style.display = "block";
+  }
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  closeBtn.onclick = function () {
+    closeModal();
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  };
+
   function renderMenu() {
     const menu = document.getElementById("menu");
     data.forEach((section) => {
@@ -176,6 +198,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const penIcon = document.createElement("div");
       penIcon.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
       flexDiv.appendChild(penIcon);
+
+      penIcon.addEventListener("click", function () {
+        openModal();
+        document.getElementById("sectionTitle").value = section.section;
+        document.getElementById("sectionDescription").value = section.content
+          .map((item) => item.subtitle || item.title)
+          .join("\n");
+      });
 
       const toggleButton = document.createElement("div");
       toggleButton.className = "toggle-button";
@@ -338,4 +368,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 메뉴 클릭 시 토글 설정
   setupMenuToggle();
+
+  // 저장 버튼 클릭 이벤트 리스너 추가
+  saveBtn.addEventListener("click", function () {
+    const sectionTitle = document.getElementById("sectionTitle").value;
+    const sectionDescription =
+      document.getElementById("sectionDescription").value;
+
+    // 데이터 업데이트 로직을 구현합니다.
+    // 예시: 첫 번째 섹션의 제목과 설명을 업데이트
+    if (data[0]) {
+      data[0].section = sectionTitle;
+      if (data[0].content[0]) {
+        data[0].content[0].subtitle = sectionDescription;
+      }
+    }
+
+    // 콘텐츠 재렌더링
+    document.getElementById("content").innerHTML = "";
+    renderContent();
+    setupToggle("toggleTravel", "travelJournal");
+    setupToggle("toggleMusic", "musicPlaylist");
+    setupToggle("toggleGame", "gameReview");
+    setupToggle("toggleFashion", "fashionContent");
+    setupToggle("toggleBooks", "booksContent");
+    setupToggle("toggleMovie", "movieContent");
+
+    closeModal();
+  });
 });
