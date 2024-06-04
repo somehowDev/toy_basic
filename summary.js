@@ -69,11 +69,25 @@ document.addEventListener("DOMContentLoaded", function () {
       contentId: "gameReview",
       content: [
         {
-          subtitle: "최근 플레이한 게임: 게임 X",
-          description:
-            "게임 X는 모험과 퍼즐 해결이 결합된 게임으로, 다채로운 세계를 탐험할 수 있습니다.",
-          pros: "스토리가 매력적이고, 퍼즐이 도전적입니다.",
-          cons: "때때로 로딩 시간이 길어질 수 있습니다.",
+          subtitle: "최근 플레이한 게임",
+          items: [
+            {
+              title: "리그오브레전드",
+              description: "블라블라블라.",
+            },
+            {
+              title: "리니지2m",
+              description: "블라블라블라.",
+            },
+            {
+              title: "바람의나라",
+              description: "블라블라블라.",
+            },
+            {
+              title: "스타크래프트",
+              description: "블라블라블라.",
+            },
+          ],
         },
       ],
     },
@@ -84,10 +98,24 @@ document.addEventListener("DOMContentLoaded", function () {
       contentId: "fashionContent",
       content: [
         {
-          subtitle: "이번 달 패션 트렌드: 봄을 맞이하는 산뜻한 스타일",
-          description: [
-            "봄맞이 메이크업 팁: 화사한 봄꽃처럼, 핑크와 코랄 색상의 블러셔를 추천합니다.",
-            "추천 아이템: 가벼운 소재의 스카프와 선글라스로 포인트를 주세요.",
+          subtitle: "패션 및 뷰티 정보 제공",
+          items: [
+            {
+              title: "블라블라블라",
+              description: "블라블라블라.",
+            },
+            {
+              title: "블라블라블라",
+              description: "블라블라블라.",
+            },
+            {
+              title: "블라블라블라",
+              description: "블라블라블라.",
+            },
+            {
+              title: "블라블라블라",
+              description: "블라블라블라.",
+            },
           ],
         },
       ],
@@ -99,19 +127,28 @@ document.addEventListener("DOMContentLoaded", function () {
       contentId: "booksContent",
       content: [
         {
-          title: "꽃길이 따로 있나, 내 삶이 꽃인 것을 - 오평선",
-          description:
-            "지금껏 가족을 위해 행복을 뒤로 미루며 살아온 부모님에게, 세상의 기준에 맞추며 사느라 내 삶을 뒤로 미뤘던 나에게 이 책을 선물하자. 책 속의 문장들이 외롭고 지친 날 기댈 수 있는 든든한 쉼터가 되어줄 것이다.",
-        },
-        {
-          title: "세이노의 가르침 - 세이노",
-          description:
-            "순자산 천억 원대 자산가, 세이노의 ‘요즘 생각’을 만나다 책입니다. 인생 선배로서 부와 성공에 대한 지혜와 함께 삶에 대한 체험적 지식을 나누어 주었다. 그래서 그의 글을 좋아하는 사람들은 그를 ‘세이노 스승님’이라 부른다.",
-        },
-        {
-          title: "불변의 법칙 - 모건 하우절",
-          description:
-            "세계적인 베스트셀러 『돈의 심리학』의 저자 모건 하우절이 3년 만에 세상에 내놓은 신작.‘절대 변하지 않는 것들에 대한 23가지 이야기’를 전한다. 국내 유수의 리더들 또한 먼저 읽고 “대단한 책이다”라는 평가를 내놓았다.",
+          subtitle: "책을 읽고 감명 깊은 문구 또는 나의 생각을 정리하기",
+          items: [
+            {
+              title: "빠르게 실패하기 - 존 크럼볼츠, 라이언 바비노",
+              description:
+                "원하는 목표를 이루기 위해 참고 인내해 온 사람이라면 누구라도 반드시 알아야 할 모든 것",
+            },
+            {
+              title: "부의 추월 차선 - 엠제이 드마코",
+              description: "빠르게 부자 되기의 장점을 설명해준 책",
+            },
+            {
+              title: "오케팅 - 오두환",
+              description:
+                "브랜딩, 마케팅을 근본적으로 어떻게 해야되는지 쉽게 설명 한 책",
+            },
+            {
+              title: "그릿 - 앤절라 더크워스",
+              description:
+                "[꾸준함]을 내 인생 모토로 삼고 있는데, 그걸 한번 더 증명 받기 위해 읽은 책.",
+            },
+          ],
         },
       ],
     },
@@ -122,32 +159,38 @@ document.addEventListener("DOMContentLoaded", function () {
       contentId: "movieContent",
       content: [
         {
-          title: "영화 1",
-          director: "감독 A",
-          description:
-            "이 영화는 사랑과 우정에 대한 감동적인 이야기를 담고 있습니다.",
-        },
-        {
-          title: "영화 2",
-          director: "감독 B",
-          description: "모험과 액션이 가득한 흥미진진한 영화입니다.",
-        },
-        {
-          title: "영화 3",
-          director: "감독 C",
-          description:
-            "미래를 배경으로 한 공상 과학 영화로, 놀라운 비주얼과 스토리를 자랑합니다.",
+          subtitle: "책을 읽고 감명 깊은 문구 또는 나의 생각을 정리하기",
+          items: [
+            {
+              title: "영화 - 1",
+              description: "영화 1",
+            },
+            {
+              title: "영화 - 2",
+              description: "영화 2",
+            },
+            {
+              title: "영화 - 3",
+              description: "영화 3",
+            },
+            {
+              title: "영화 - 4",
+              description: "영화 4",
+            },
+          ],
         },
       ],
     },
   ];
 
   const modal = document.getElementById("myModal");
+  const modalTitle = document.getElementById("modalTitle");
   const closeBtn = document.getElementsByClassName("close")[0];
   const saveBtn = document.getElementById("saveButton");
 
-  function openModal() {
+  function openModal(title) {
     modal.style.display = "block";
+    modalTitle.textContent = title; // 모달 제목을 업데이트
   }
 
   function closeModal() {
@@ -200,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function () {
       flexDiv.appendChild(penIcon);
 
       penIcon.addEventListener("click", function () {
-        openModal();
+        openModal(section.section); // 모달을 열고 제목을 전달
         document.getElementById("sectionTitle").value = section.section;
         document.getElementById("sectionDescription").value = section.content
           .map((item) => item.subtitle || item.title)
