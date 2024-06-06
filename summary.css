@@ -222,9 +222,8 @@ ul li p {
 #modalForm div {
   display: flex;
   align-items: center;
-  gap: 10px;
   width: 100%;
-  padding: 10px;
+  padding: 4px;
 }
 .saveBtn-wrap {
   display: flex;
@@ -242,4 +241,19 @@ ul li p {
 #saveButton:hover {
   background-color: black;
   color: white;
+}
+
+.divisionLine {
+  border: 1.5px solid black;
+  height: 0px !important;
+  width: 420px !important;
+  padding: 0px !important;
+  margin: 10px;
+}
+
+.dataWrap {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  align-items: flex-start !important;
 }
