@@ -429,12 +429,28 @@ document.addEventListener("DOMContentLoaded", function () {
     const sectionDescription =
       document.getElementById("sectionDescription").value;
 
-    // 데이터 업데이트 로직을 구현합니다.
-    // 예시: 첫 번째 섹션의 제목과 설명을 업데이트
-    if (data[0]) {
-      data[0].section = sectionTitle;
-      if (data[0].content[0]) {
-        data[0].content[0].subtitle = sectionDescription;
+    if (currentSectionIndex !== null) {
+      data[currentSectionIndex].section = sectionTitle;
+      if (data[currentSectionIndex].content[0]) {
+        data[currentSectionIndex].content[0].subtitle = sectionDescription;
+        data[currentSectionIndex].content[0].items = [
+          {
+            title: document.getElementById("data1").value,
+            description: document.getElementById("dataDesc1").value,
+          },
+          {
+            title: document.getElementById("data2").value,
+            description: document.getElementById("dataDesc2").value,
+          },
+          {
+            title: document.getElementById("data3").value,
+            description: document.getElementById("dataDesc3").value,
+          },
+          {
+            title: document.getElementById("data4").value,
+            description: document.getElementById("dataDesc4").value,
+          },
+        ];
       }
     }
 
