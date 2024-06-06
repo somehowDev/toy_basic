@@ -222,7 +222,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function renderContent() {
     const content = document.getElementById("content");
-    data.forEach((section) => {
+    data.forEach((section, index) => {
+      console.log("section", section);
       const sectionDiv = document.createElement("div");
       sectionDiv.className = "section";
       sectionDiv.id = section.id;
@@ -248,6 +249,16 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("sectionDescription").value = section.content
           .map((item) => item.subtitle || item.title)
           .join("\n");
+
+        // 현재 섹션 인덱스를 저장
+        currentSectionIndex = index;
+
+        // items 데이터를 모달 폼에 바인딩
+        section.content[0]?.items?.forEach((item, idx) => {
+          document.getElementById(`data${idx + 1}`).value = item.title;
+          document.getElementById(`dataDesc${idx + 1}`).value =
+            item.description;
+        });
       });
 
       const toggleButton = document.createElement("div");
