@@ -430,6 +430,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 콘텐츠 재렌더링
     document.getElementById("content").innerHTML = "";
     renderContent();
+
     setupToggle("toggleTravel", "travelJournal");
     setupToggle("toggleMusic", "musicPlaylist");
     setupToggle("toggleGame", "gameReview");

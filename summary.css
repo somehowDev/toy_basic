@@ -181,7 +181,7 @@ ul li p {
   margin: 5% auto;
   padding: 20px;
   border: 3px solid black;
-  width: 60%;
+  width: 420px;
   border-radius: 10px;
 }
 
@@ -209,17 +209,37 @@ ul li p {
 
 .modal input {
   height: 24px;
-  width: 240px;
+  width: 300px;
 }
 
 .modal textarea {
-  width: 240px;
+  width: 300px;
+  height: 60px;
 }
-
+#modalForm label {
+  width: 60px;
+}
 #modalForm div {
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 300px;
+  width: 100%;
   padding: 10px;
+}
+.saveBtn-wrap {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}
+
+#saveButton {
+  padding: 5px 10px;
+  background-color: rgb(255, 255, 255);
+  width: 80px;
+  cursor: pointer;
+}
+
+#saveButton:hover {
+  background-color: black;
+  color: white;
 }
