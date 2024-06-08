@@ -42,21 +42,20 @@ document.addEventListener("DOMContentLoaded", function () {
           subtitle: "이번 달의 플레이리스트 - 감성을 울리는 멜로디",
           items: [
             {
-              title: "노래 1 - 아티스트 A",
-              description: "가사와 멜로디가 마음을 울려요.",
+              title: "Blue Bird - Ikimono Gakari",
+              description: "경쾌하고 신나는 멜로디로 하루를 시작하기 좋습니다.",
             },
             {
-              title: "노래 2 - 아티스트 B",
-              description: "듣기만 해도 기분이 좋아지는 노래입니다.",
+              title: "Shape of You - Ed Sheeran",
+              description: "리드미컬한 비트와 가사로 인기를 끈 노래입니다.",
             },
             {
-              title: "노래 3 - 아티스트 C",
-              description: "이 노래를 들을 때마다 여행을 떠나고 싶어집니다.",
+              title: "Rolling in the Deep - Adele",
+              description: "아델의 파워풀한 보컬이 돋보이는 곡입니다.",
             },
             {
-              title: "코멘트",
-              description:
-                "각곡마다 저의 개인적인 이야기를 담았어요. 들어보시고 공감하시면 좋겠네요.",
+              title: "Nandemonaiya - RADWIMPS",
+              description: "애니메이션 '너의 이름은'의 OST로 유명한 곡입니다.",
             },
           ],
         },
@@ -72,20 +71,24 @@ document.addEventListener("DOMContentLoaded", function () {
           subtitle: "최근 플레이한 게임",
           items: [
             {
-              title: "리그오브레전드",
-              description: "블라블라블라.",
+              title: "리그 오브 레전드",
+              description:
+                "팀 전략 게임으로 다양한 챔피언과 협동 플레이가 재미있는 게임입니다.",
             },
             {
-              title: "리니지2m",
-              description: "블라블라블라.",
+              title: "리니지 2M",
+              description:
+                "원작 리니지를 모바일에서 즐길 수 있는 게임으로, 화려한 그래픽이 특징입니다.",
             },
             {
-              title: "바람의나라",
-              description: "블라블라블라.",
+              title: "바람의 나라: 연",
+              description:
+                "고전 MMORPG 바람의 나라를 모바일로 재현한 게임입니다.",
             },
             {
               title: "스타크래프트",
-              description: "블라블라블라.",
+              description:
+                "전략 시뮬레이션 게임의 고전으로, 높은 전략성이 요구됩니다.",
             },
           ],
         },
@@ -101,20 +104,23 @@ document.addEventListener("DOMContentLoaded", function () {
           subtitle: "패션 및 뷰티 정보 제공",
           items: [
             {
-              title: "블라블라블라",
-              description: "블라블라블라.",
+              title: "2024년 여름 패션 트렌드",
+              description: "밝은 색상과 가벼운 소재의 옷이 유행할 예정입니다.",
             },
             {
-              title: "블라블라블라",
-              description: "블라블라블라.",
+              title: "스킨케어 루틴",
+              description:
+                "기초 스킨케어 단계부터 고급 스킨케어 팁까지 소개합니다.",
             },
             {
-              title: "블라블라블라",
-              description: "블라블라블라.",
+              title: "메이크업 트렌드",
+              description:
+                "자연스러운 메이크업과 글로우 메이크업이 인기입니다.",
             },
             {
-              title: "블라블라블라",
-              description: "블라블라블라.",
+              title: "헤어스타일링 팁",
+              description:
+                "간단하게 따라 할 수 있는 헤어스타일링 방법을 공유합니다.",
             },
           ],
         },
@@ -132,21 +138,21 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               title: "빠르게 실패하기 - 존 크럼볼츠, 라이언 바비노",
               description:
-                "원하는 목표를 이루기 위해 참고 인내해 온 사람이라면 누구라도 반드시 알아야 할 모든 것",
+                "원하는 목표를 이루기 위해 참고 인내해 온 사람이라면 누구라도 반드시 알아야 할 모든 것.",
             },
             {
               title: "부의 추월 차선 - 엠제이 드마코",
-              description: "빠르게 부자 되기의 장점을 설명해준 책",
+              description: "빠르게 부자가 되기 위한 방법을 설명해주는 책.",
             },
             {
               title: "오케팅 - 오두환",
               description:
-                "브랜딩, 마케팅을 근본적으로 어떻게 해야되는지 쉽게 설명 한 책",
+                "브랜딩, 마케팅을 근본적으로 어떻게 해야 하는지 쉽게 설명한 책.",
             },
             {
               title: "그릿 - 앤절라 더크워스",
               description:
-                "[꾸준함]을 내 인생 모토로 삼고 있는데, 그걸 한번 더 증명 받기 위해 읽은 책.",
+                "'꾸준함'을 인생 모토로 삼고 있는 사람에게 추천하는 책.",
             },
           ],
         },
@@ -159,23 +165,25 @@ document.addEventListener("DOMContentLoaded", function () {
       contentId: "movieContent",
       content: [
         {
-          subtitle: "책을 읽고 감명 깊은 문구 또는 나의 생각을 정리하기",
+          subtitle: "감명 깊은 영화와 나의 생각을 정리하기",
           items: [
             {
-              title: "영화 - 1",
-              description: "영화 1",
+              title: "포레스트 검프",
+              description: "삶의 소중함과 용기를 주는 감동적인 영화입니다.",
             },
             {
-              title: "영화 - 2",
-              description: "영화 2",
+              title: "인셉션",
+              description:
+                "복잡한 이야기 구조와 놀라운 시각 효과로 주목받은 영화입니다.",
             },
             {
-              title: "영화 - 3",
-              description: "영화 3",
+              title: "인터스텔라",
+              description: "우주 탐사를 소재로 한 감동적인 SF 영화입니다.",
             },
             {
-              title: "영화 - 4",
-              description: "영화 4",
+              title: "기생충",
+              description:
+                "한국 영화 최초로 아카데미 작품상을 수상한 영화입니다.",
             },
           ],
         },
@@ -309,20 +317,6 @@ document.addEventListener("DOMContentLoaded", function () {
             description.textContent = content.description;
             sectionContent.appendChild(description);
           }
-
-          if (content.pros) {
-            const pros = document.createElement("p");
-            pros.className = "section-pros";
-            pros.textContent = "장점: " + content.pros;
-            sectionContent.appendChild(pros);
-          }
-
-          if (content.cons) {
-            const cons = document.createElement("p");
-            cons.className = "section-cons";
-            cons.textContent = "단점: " + content.cons;
-            sectionContent.appendChild(cons);
-          }
         });
       }
 
@@ -453,6 +447,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ];
       }
     }
+    k;
 
     // 콘텐츠 재렌더링
     document.getElementById("content").innerHTML = "";
