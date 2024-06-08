@@ -341,10 +341,12 @@ document.addEventListener("DOMContentLoaded", function () {
       content.appendChild(sectionDiv);
     });
   }
+
   // 토글 버튼 설정 함수
   function setupToggle(toggleButtonId, contentId) {
     const content = document.getElementById(contentId); // 콘텐츠 선택
     const button = document.getElementById(toggleButtonId); // 버튼 선택
+    const menuLinks = document.querySelectorAll(".menu-link");
 
     content.style.maxHeight = "0"; // 초기 상태에서 콘텐츠를 접음
     button.innerHTML = "➕"; // 초기 상태에서 버튼을 "➕"로 설정
@@ -360,6 +362,11 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         content.style.maxHeight = "0"; // 콘텐츠를 접음
         button.innerHTML = "➕"; // 버튼을 "➕"로 변경
+
+        // 모든 메뉴 링크에서 active 클래스 제거
+        menuLinks.forEach((link) => {
+          link.classList.remove("active");
+        });
       }
     });
 
@@ -383,8 +390,18 @@ document.addEventListener("DOMContentLoaded", function () {
       // 메뉴 링크 클릭 이벤트 리스너
       link.addEventListener("click", function (event) {
         event.preventDefault();
+
+        // 모든 메뉴 링크에서 active 클래스 제거
+        menuLinks.forEach((link) => {
+          link.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
         const targetId = this.getAttribute("href").substring(1);
-        const targetSection = document.getElementById(targetId);
+        const targetSection = document
+          .getElementById(targetId)
+          .querySelector(".section-content"); // 수정된 부분
 
         sections.forEach((section) => {
           if (section !== targetSection) {
@@ -400,6 +417,10 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           targetSection.style.maxHeight = "0"; // 선택된 섹션을 접음
         }
+
+        document
+          .getElementById(targetId)
+          .scrollIntoView({ behavior: "smooth" }); // 선택된 섹션으로 스크롤 이동
       });
     });
   }
