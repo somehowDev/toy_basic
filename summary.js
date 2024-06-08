@@ -1,8 +1,5 @@
-// DOMContentLoaded 이벤트가 발생할 때 실행되는 함수
 document.addEventListener("DOMContentLoaded", function () {
-  // 섹션 데이터를 정의한 배열
   const data = [
-    // 여행 일지 섹션
     {
       section: "여행 일지",
       id: "travelJournalSection",
@@ -35,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       ],
     },
-    // 음악 플레이리스트 섹션
     {
       section: "음악 플레이리스트",
       id: "musicPlaylistSection",
@@ -65,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       ],
     },
-    // 게임 리뷰 및 가이드 섹션
     {
       section: "게임 리뷰 및 가이드",
       id: "gameReviewSection",
@@ -99,7 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       ],
     },
-    // 패션 및 뷰티 블로그 섹션
     {
       section: "패션 및 뷰티 블로그",
       id: "fashionContentSection",
@@ -132,7 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       ],
     },
-    // 책 추천 섹션
     {
       section: "책 추천",
       id: "booksContentSection",
@@ -165,7 +158,6 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       ],
     },
-    // 영화 추천 섹션
     {
       section: "영화 추천",
       id: "movieContentSection",
@@ -199,36 +191,31 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   ];
 
-  // 모달 요소 및 버튼을 가져오기
   const modal = document.getElementById("myModal");
   const modalTitle = document.getElementById("modalTitle");
   const closeBtn = document.getElementsByClassName("close")[0];
   const saveBtn = document.getElementById("saveButton");
+  let currentSectionIndex = null; // 현재 섹션 인덱스 변수 추가
 
-  // 모달 열기 함수
   function openModal(title) {
     modal.style.display = "block";
-    modalTitle.textContent = title; // 모달 제목을 업데이트
+    modalTitle.textContent = title;
   }
 
-  // 모달 닫기 함수
   function closeModal() {
     modal.style.display = "none";
   }
 
-  // 모달 닫기 버튼 클릭 이벤트 리스너
   closeBtn.onclick = function () {
     closeModal();
   };
 
-  // 모달 외부 클릭 시 모달 닫기
   window.onclick = function (event) {
     if (event.target == modal) {
       closeModal();
     }
   };
 
-  // 메뉴 렌더링 함수
   function renderMenu() {
     const menu = document.getElementById("menu");
     data.forEach((section) => {
@@ -242,76 +229,71 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 콘텐츠 렌더링 함수
   function renderContent() {
-    const content = document.getElementById("content"); // 콘텐츠를 추가할 컨테이너 요소를 선택합니다.
+    const content = document.getElementById("content");
+    content.innerHTML = ""; // 기존 콘텐츠를 초기화합니다.
 
-    // 섹션 데이터를 반복하여 각 섹션을 렌더링합니다.
     data.forEach((section, index) => {
-      // 섹션을 담을 div 요소를 생성하고 클래스와 ID를 설정합니다.
       const sectionDiv = document.createElement("div");
       sectionDiv.className = "section";
       sectionDiv.id = section.id;
 
-      // 섹션 헤더를 생성하고 클래스 설정합니다.
       const sectionHeader = document.createElement("div");
       sectionHeader.className = "section-header";
 
-      // 섹션 제목을 담을 div 요소를 생성하고 텍스트 콘텐츠를 설정합니다.
       const sectionTitle = document.createElement("div");
       sectionTitle.className = "section-title";
       sectionTitle.textContent = section.section;
-      sectionHeader.appendChild(sectionTitle); // 섹션 헤더에 제목을 추가합니다.
+      sectionHeader.appendChild(sectionTitle);
 
-      // 섹션 헤더에 편집 아이콘과 토글 버튼을 담을 flex div를 생성합니다.
       const flexDiv = document.createElement("div");
       flexDiv.className = "flex";
 
-      // 편집 아이콘을 생성하고 flex div에 추가합니다.
       const penIcon = document.createElement("div");
       penIcon.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
       flexDiv.appendChild(penIcon);
 
-      // 편집 아이콘에 클릭 이벤트 리스너를 추가합니다.
       penIcon.addEventListener("click", function () {
-        openModal(section.section); // 모달을 열고 제목을 전달합니다.
-        document.getElementById("sectionTitle").value = section.section; // 모달에 섹션 제목을 설정합니다.
+        openModal(section.section);
+        document.getElementById("sectionTitle").value = section.section;
         document.getElementById("sectionDescription").value = section.content
           .map((item) => item.subtitle || item.title)
-          .join("\n"); // 모달에 섹션 설명을 설정합니다.
+          .join("\n");
 
-        // 현재 섹션 인덱스를 저장합니다.
         currentSectionIndex = index;
 
-        // 섹션의 items 데이터를 모달 폼에 바인딩합니다.
         section.content[0]?.items?.forEach((item, idx) => {
           document.getElementById(`data${idx + 1}`).value = item.title;
           document.getElementById(`dataDesc${idx + 1}`).value =
             item.description;
         });
+
+        // 해당 섹션을 펼침
+        const sectionContent = document.getElementById(section.contentId);
+        sectionContent.style.maxHeight = sectionContent.scrollHeight + "px";
+        const toggleButton = document.getElementById(section.toggleId);
+        toggleButton.innerHTML = "➖";
+
+        document
+          .querySelector(`a[href='#${section.id}']`)
+          .classList.add("active");
       });
 
-      // 토글 버튼을 생성하고 ID와 초기 텍스트를 설정합니다.
       const toggleButton = document.createElement("div");
       toggleButton.className = "toggle-button";
       toggleButton.textContent = "➕";
-      toggleButton.id = section.toggleId; // 토글 버튼에 ID 추가
+      toggleButton.id = section.toggleId;
       flexDiv.appendChild(toggleButton);
 
-      // 섹션 헤더에 flex div를 추가합니다.
       sectionHeader.appendChild(flexDiv);
-      // 섹션 div에 섹션 헤더를 추가합니다.
       sectionDiv.appendChild(sectionHeader);
 
-      // 섹션의 콘텐츠를 담을 div 요소를 생성하고 클래스와 ID를 설정합니다.
       const sectionContent = document.createElement("div");
       sectionContent.className = "section-content";
-      sectionContent.id = section.contentId; // 콘텐츠에 ID 추가
+      sectionContent.id = section.contentId;
 
-      // 섹션의 콘텐츠를 반복하여 추가합니다.
       if (section.content) {
         section.content.forEach((content) => {
-          // 서브타이틀이 있는 경우 p 요소를 생성하고 텍스트를 설정합니다.
           if (content.subtitle) {
             const subtitle = document.createElement("p");
             subtitle.className = "section-subtitle";
@@ -319,7 +301,6 @@ document.addEventListener("DOMContentLoaded", function () {
             sectionContent.appendChild(subtitle);
           }
 
-          // items가 있는 경우 ul 요소를 생성하고 li 요소로 아이템을 추가합니다.
           if (content.items) {
             const ul = document.createElement("ul");
             content.items.forEach((item) => {
@@ -335,38 +316,39 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
 
-      // 섹션 div에 섹션 콘텐츠를 추가합니다.
       sectionDiv.appendChild(sectionContent);
-      // 최종적으로 콘텐츠 컨테이너에 섹션 div를 추가합니다.
       content.appendChild(sectionDiv);
     });
   }
 
-  // 토글 버튼 설정 함수
   function setupToggle(toggleButtonId, contentId) {
-    const content = document.getElementById(contentId); // 콘텐츠 선택
-    const button = document.getElementById(toggleButtonId); // 버튼 선택
-    const menuLinks = document.querySelectorAll(".menu-link");
+    const content = document.getElementById(contentId);
+    const button = document.getElementById(toggleButtonId);
 
-    content.style.maxHeight = "0"; // 초기 상태에서 콘텐츠를 접음
-    button.innerHTML = "➕"; // 초기 상태에서 버튼을 "➕"로 설정
+    content.style.maxHeight = "0";
+    button.innerHTML = "➕";
 
-    // 버튼에 클릭 이벤트 리스너 추가
     button.addEventListener("click", function () {
+      const section = button.parentNode.parentNode.parentNode;
+      const sectionId = section.id;
+
       if (
         content.style.maxHeight === "0px" ||
         content.style.maxHeight === "0"
       ) {
-        content.style.maxHeight = content.scrollHeight + "px"; // 콘텐츠를 펼침
-        button.innerHTML = "➖"; // 버튼을 "➖"로 변경
-      } else {
-        content.style.maxHeight = "0"; // 콘텐츠를 접음
-        button.innerHTML = "➕"; // 버튼을 "➕"로 변경
+        content.style.maxHeight = content.scrollHeight + "px";
+        button.innerHTML = "➖";
 
-        // 모든 메뉴 링크에서 active 클래스 제거
-        menuLinks.forEach((link) => {
-          link.classList.remove("active");
-        });
+        document
+          .querySelector(`a[href='#${sectionId}']`)
+          .classList.add("active");
+      } else {
+        content.style.maxHeight = "0";
+        button.innerHTML = "➕";
+
+        document
+          .querySelector(`a[href='#${sectionId}']`)
+          .classList.remove("active");
       }
     });
 
@@ -381,17 +363,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 메뉴 토글 설정 함수
   function setupMenuToggle() {
     const menuLinks = document.querySelectorAll(".menu-link");
     const sections = document.querySelectorAll(".section-content");
 
     menuLinks.forEach((link) => {
-      // 메뉴 링크 클릭 이벤트 리스너
       link.addEventListener("click", function (event) {
         event.preventDefault();
 
-        // 모든 메뉴 링크에서 active 클래스 제거
         menuLinks.forEach((link) => {
           link.classList.remove("active");
         });
@@ -401,11 +380,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const targetId = this.getAttribute("href").substring(1);
         const targetSection = document
           .getElementById(targetId)
-          .querySelector(".section-content"); // 수정된 부분
+          .querySelector(".section-content");
 
         sections.forEach((section) => {
           if (section !== targetSection) {
-            section.style.maxHeight = "0"; // 다른 섹션을 접음
+            section.style.maxHeight = "0";
+            const toggleButton =
+              section.previousElementSibling.querySelector(".toggle-button");
+            if (toggleButton) {
+              toggleButton.innerHTML = "➕";
+            }
           }
         });
 
@@ -413,27 +397,101 @@ document.addEventListener("DOMContentLoaded", function () {
           targetSection.style.maxHeight === "0px" ||
           targetSection.style.maxHeight === "0"
         ) {
-          targetSection.style.maxHeight = targetSection.scrollHeight + "px"; // 선택된 섹션을 펼침
+          targetSection.style.maxHeight = targetSection.scrollHeight + "px";
+          const toggleButton =
+            targetSection.previousElementSibling.querySelector(
+              ".toggle-button"
+            );
+          if (toggleButton) {
+            toggleButton.innerHTML = "➖";
+          }
         } else {
-          targetSection.style.maxHeight = "0"; // 선택된 섹션을 접음
+          targetSection.style.maxHeight = "0";
+          const toggleButton =
+            targetSection.previousElementSibling.querySelector(
+              ".toggle-button"
+            );
+          if (toggleButton) {
+            toggleButton.innerHTML = "➕";
+          }
         }
 
         document
           .getElementById(targetId)
-          .scrollIntoView({ behavior: "smooth" }); // 선택된 섹션으로 스크롤 이동
+          .scrollIntoView({ behavior: "smooth" });
       });
     });
   }
 
-  // 초기화 함수
-  function initialize() {
-    renderMenu(); // 메뉴 렌더링
-    renderContent(); // 콘텐츠 렌더링
-    data.forEach((section) => {
-      setupToggle(section.toggleId, section.contentId); // 각 섹션의 토글 버튼 설정
+  saveBtn.addEventListener("click", function () {
+    const sectionTitle = document.getElementById("sectionTitle").value;
+    const sectionDescription =
+      document.getElementById("sectionDescription").value;
+
+    const expandedSections = {};
+    document.querySelectorAll(".section-content").forEach((section) => {
+      if (
+        section.style.maxHeight !== "0px" &&
+        section.style.maxHeight !== "0"
+      ) {
+        expandedSections[section.id] = true;
+      }
     });
-    setupMenuToggle(); // 메뉴 토글 설정
+
+    if (currentSectionIndex !== null) {
+      data[currentSectionIndex].section = sectionTitle;
+      if (data[currentSectionIndex].content[0]) {
+        data[currentSectionIndex].content[0].subtitle = sectionDescription;
+        data[currentSectionIndex].content[0].items = [
+          {
+            title: document.getElementById("data1").value,
+            description: document.getElementById("dataDesc1").value,
+          },
+          {
+            title: document.getElementById("data2").value,
+            description: document.getElementById("dataDesc2").value,
+          },
+          {
+            title: document.getElementById("data3").value,
+            description: document.getElementById("dataDesc3").value,
+          },
+          {
+            title: document.getElementById("data4").value,
+            description: document.getElementById("dataDesc4").value,
+          },
+        ];
+      }
+    }
+
+    renderContent();
+
+    data.forEach((section) => {
+      setupToggle(section.toggleId, section.contentId);
+    });
+
+    Object.keys(expandedSections).forEach((id) => {
+      const sectionContent = document.getElementById(id);
+      sectionContent.style.maxHeight = sectionContent.scrollHeight + "px";
+      const toggleButton =
+        sectionContent.previousElementSibling.querySelector(".toggle-button");
+      toggleButton.innerHTML = "➖";
+
+      document
+        .querySelector(`a[href='#${sectionContent.parentNode.id}']`)
+        .classList.add("active");
+    });
+
+    closeModal();
+  });
+
+  function initialize() {
+    renderMenu();
+    renderContent();
+    data.forEach((section) => {
+      setupToggle(section.toggleId, section.contentId);
+    });
+    setupMenuToggle();
   }
 
-  initialize(); // 초기화 함수 호출
+  initialize();
 });
