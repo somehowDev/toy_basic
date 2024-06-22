@@ -1,5 +1,17 @@
 # 나의 취미 웹 페이지 기획서
 
+## 실행 화면
+
+<div style="text-align:center;">
+<img src="./1.png" width="400" height="300" title="dev"/>
+<img src="./2.png" width="400" height="300" title="dev"/>
+</div>
+<div style="text-align:center;">
+<img src="./3.png" width="400" height="300" title="dev"/>
+<img src="./4.png" width="400" height="300" title="dev"/>
+</div>
+<br />
+
 ## 1. 개요
 
 나의 취미 웹 페이지는 사용자가 다양한 취미 항목을 추가, 읽기, 수정, 삭제(CRUD)할 수 있는 기능을 제공합니다. 이 기획서는 페이지 구조, 기능 및 디자인 요소를 상세히 설명합니다.
